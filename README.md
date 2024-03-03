@@ -4,28 +4,29 @@
 [[`Project Page`](https://jasonyzhang.com/RayDiffusion/)]
 [[`Bibtex`](#citing-cameras-as-rays)]
 
-
 This repository contains code for "Cameras as Rays: Pose Estimation via Ray Diffusion" (ICLR 2024).
 
 ## Setting up Environment
 
-We recommend using a conda environment to manage dependencies. Install a version of
-Pytorch compatible with your CUDA version from the [Pytorch website](https://pytorch.org/get-started/locally/).
+If you're installing on Windows, first install Visual Studio C++ Desktop Development. Then, ensure CUDA and conda are all on PATH.
+
+Find a version of Pytorch compatible with your CUDA version from the [Pytorch website](https://pytorch.org/get-started/locally/). Note: if you pip install xformers, then use the latest Pytorch version.
 
 ```
 conda create -n raydiffusion python=3.10
 conda activate raydiffusion
-conda install pytorch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 pytorch-cuda=11.8 -c pytorch -c nvidia
-conda install xformers -c xformers
+conda install pytorch==2.2.0 torchvision==0.16.1 torchaudio==2.1.1 pytorch-cuda=11.8 -c pytorch -c nvidia
+pip install --pre -U xformers
 pip install -r requirements.txt
+pip install timm
 ```
 
-Then, follow the directions to install Pytorch3D [here](https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md).
-We recommend installing Pytorch3D using the pre-built wheel with the corresponding Python/Pytorch/CUDA version:
+Then, follow the directions to install Pytorch3D on Windows [here](https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md).
 ```
-pip install --no-index --no-cache-dir pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py310_cu118_pyt211/download.html
+git clone pytorch3d
+cd pytorch3d
+python setup.py install
 ```
-If you are having trouble installing using the pre-built wheel, you can also try building from source, but this will take a lot longer.
 
 ## Run Demo
 
@@ -53,7 +54,6 @@ python demo.py  --model_dir models/co3d_regression --image_dir examples/robot/im
 - [x] Demo Code
 - [ ] Evaluation Code
 - [ ] Training Code
-
 
 ## Citing Cameras as Rays
 
