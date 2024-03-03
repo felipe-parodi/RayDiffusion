@@ -6,7 +6,7 @@
 
 This repository contains code for "Cameras as Rays: Pose Estimation via Ray Diffusion" (ICLR 2024).
 
-## Setting up Environment
+## Setting up Environment on Windows
 
 If you're installing on Windows, first install Visual Studio C++ Desktop Development. Then, ensure CUDA and conda are all on PATH.
 
@@ -21,11 +21,11 @@ pip install -r requirements.txt
 pip install timm
 ```
 
-Then, follow the directions to install Pytorch3D on Windows [here](https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md).
+Then, follow the directions to install Pytorch3D [here](https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md).
 ```
-git clone pytorch3d
+git clone https://github.com/facebookresearch/pytorch3d.git
 cd pytorch3d
-python setup.py install
+python setup.py install # if this gives an issue, run in x64 Native Tools CP
 ```
 
 ## Run Demo
